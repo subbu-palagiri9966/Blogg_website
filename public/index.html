@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Blog Website</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Blog</h1>
+    <form id="postForm" action="/create-post" method="post">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" required></textarea>
+
+      <button type="button" onclick="createPost()">Create Post</button>
+    </form>
+
+    <div class="posts" id="postsContainer">
+    </div>
+  </div>
+
+  <script>
+    // Function to create post elements dynamically
+    function createPostElement(post) {
+      const postElement = document.createElement('div');
+      postElement.className = 'post';
+
+      const titleElement = document.createElement('h2');
+      titleElement.textContent = post.title;
+
+      const contentElement = document.createElement('p');
+      contentElement.textContent = post.content;
+
+      const dateElement = document.createElement('p');
+      dateElement.className = 'date';
+      dateElement.textContent = 'Posted on ' + new Date(post.date).toLocaleString();
+
+      postElement.appendChild(titleElement);
+      postElement.appendChild(contentElement);
+      postElement.appendChild(dateElement);
+
+      return postElement;
+    }
+
+    // Function to handle form submission
+    function createPost() {
+      const title = document.getElementById('title').value;
+      const content = document.getElementById('content').value;
+
+      // Create a new post element
+      const newPost = {
+        title,
+        content,
+        date: new Date().toISOString()
+      };
+
+      // Append the new post to the posts container
+      const postsContainer = document.getElementById('postsContainer');
+      postsContainer.appendChild(createPostElement(newPost));
+
+      // Clear the form
+      document.getElementById('postForm').reset();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('blog.jpg'); /* Replace 'background-image.jpg' with the actual file name and path */
+  background-size: cover;
+  background-position: center; /* Center horizontally, position at the top vertically */
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background to the container for better contrast with the text */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Rest of your existing CSS styles remain unchanged */
+
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.posts {
+  margin-top: 20px;
+}
+
+.post {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+}
+
+.date {
+  color: #888;
+  font-size: 12px;
+}
